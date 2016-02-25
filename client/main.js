@@ -1,31 +1,19 @@
 'use strict';
 
-// var Backbone = require('backbone');
-// var $ = Backbone.$ = require('jquery');
+import app from 'ampersand-app'
+import styles from './styles/main.styl'
+import Router from './router.js'
+import getUtils from './utils.js'
 
-// var AppView = Backbone.View.extend({
-// 	render: function() {
-// 		$('main').append('<h1>Browserify is mathematical.</h1>');
-// 	}
-// });
+// expose app to browser console
+window.app = app;
+window.utils = getUtils();
 
-// var appView = new AppView();
-// appView.render();
-
-// window.BackScratcher = {
-// 	bawk: function() {
-// 		console.log('bawk!');
-// 	}
-// };
-
-var React = require('react');
-var styles = require('./styles/main.styl');
-
-var Hello = React.createClass({
-	displayName: 'Hello',
-	render: function () {
-		return <div>Hello, {this.props.name}</div>;
+app.extend({
+	init () {
+		this.router = new Router()
+		this.router.history.start()
 	}
-});
+})
 
-React.render(<Hello name='World!'/>, document.body);
+app.init()
