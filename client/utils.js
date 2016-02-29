@@ -3,6 +3,23 @@
 class Utils {
 	constructor() {
 		this.ranges = [];
+		this.tree = {
+			left: {
+				left: {
+					value: 1
+				},
+				right: {
+					value: 3
+				},
+				value: 2
+			},
+			right: {
+				value: 5
+			},
+			value: 4
+		}
+
+		this.prev = null;
 	}
 
 	trackRange (min, max) {
@@ -12,6 +29,7 @@ class Utils {
 			min = max;
 			max = temp
 		}
+
 		const newRange = {
 			min: min,
 			max: max
@@ -60,6 +78,18 @@ class Utils {
 
 	queryRange () {}
 	deleteRange () {}
+
+	isBST(node) {
+		if (!!node) {
+			if (!this.isBST(node.left)) {
+				return false;
+			}
+
+			// if (!!this.prev && )
+		}
+
+		return true;
+	}
 }
 
 let utilton;

@@ -5,6 +5,9 @@ import MinesweeperPage from './pages/minesweeper'
 import RangePage from './pages/range'
 import React from 'react'
 import app from 'ampersand-app'
+import Twos from './pages/twos'
+
+window.twos = Twos;
 
 export default Router.extend({
 	routes: {
